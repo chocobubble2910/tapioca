@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTM</title>
+    <style>
+        div{
+            justify-content: center;
+            align-items: center;
+        }
+
+        table{
+            width: 50%;
+            border: 2px solid black;
+        }
+
+        .num{
+            width: 50px;
+        }
+
+        td{
+            /* border: 1px solid red; */
+            text-align: right;
+            padding: 5px 15px 5px 5px;
+        }
+
+        .title{
+            text-align: center;
+        }
+
+        #myForm{
+            padding-bottom: 50px;
+        }
+
+        @media(
+            min-width: 600px
+        ){
+            table{
+                width: 50%;
+                border: 2px solid black;
+            }
+        }
+
+        button{
+            border-radius: 10px;
+            padding: 10px 30px;
+            margin-top: 10px;
+            background-color: aquamarine;
+            color: black;
+            font-size: medium;
+        }
+    </style>
+</head>
+<body>
+    <div id="myForm">
+    <form>
+        <table>
+            <tr>
+                <th colspan="2">ကိုသီဟ ကုန်ဖိုးငွေစာရင်း</th>
+                <th><input type="date" id="date"/></th>
+            </tr>
+
+            <tr>
+                <td style="width:10%">&nbsp;&nbsp;&nbsp;ဝယ်အိတ်</td>
+                <td style="width:45%">
+                    <input type="text" id="purchase-amount" class="num"/>&nbsp;&nbsp;အိတ်&nbsp;
+                    <input type="text" id="purchase-money" class="num"/>&nbsp;&nbsp;&nbsp;ကျပ်
+                </td>
+                <td><span id="total-amount"></span>&nbsp;&nbsp;&nbsp;ကျပ်</td>
+            </tr>
+
+            <tr>
+                <td>ကော်မရှင်ခ</td>
+                <td>
+                    <input type="text" id="commission-amount" class="num"/>&nbsp;&nbsp;အိတ်&nbsp;
+                    <input type="text" id="commission-money" class="num"/>&nbsp;&nbsp;&nbsp;ကျပ်
+                </td>
+                <td><span id="commission-total"></span>&nbsp;&nbsp;&nbsp;ကျပ်</td>
+            </tr>
+
+            <tr>
+                <td colspan="2"></td>
+                <td><hr></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">စုစုပေါင်း ကုန်ဖိုးငွေ</td>
+                <td><span id="total"></span>&nbsp;&nbsp;&nbsp;ကျပ်</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">ကိုသီဟသို့ပေးရန် ကုန်ဖိုးငွေ</td>
+                <td><span id="total-th"></span>&nbsp;&nbsp;&nbsp;ကျပ်</td>
+            </tr>
+
+            <tr>
+                <td colspan="3"><hr></td>
+            </tr>
+
+            <tr>
+                <th colspan="3" class="title">တင်ရန်ကျန်စာရင်း</th>
+            </tr>
+
+            <tr>
+                <td colspan="2"><input type="date" id="left-date" class="num"/>&nbsp;&nbsp;&nbsp;လက်ကျန်အိတ်</td>
+                <td>
+                    <input type="text" id="left-amount" class="num"/>&nbsp;&nbsp;&nbsp;အိတ်
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><input type="date" id="total" class="num"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ဝယ်အိတ်</td>
+                <td>
+                    <span id="purchase-amount1"></span>&nbsp;&nbsp;&nbsp;အိတ်
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">စုစုပေါင်းအိတ်</td>
+                <td>
+                    <span id="total-left"></span>&nbsp;&nbsp;&nbsp;အိတ်
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    ကားတင်&nbsp;&nbsp;&nbsp;
+                    <select id="car">
+                        <option value="5R/1111">5R/1111</option>
+                        <option value="5R/1112">5R/1112</option>
+                        <option value="5R/1113">5R/1113</option>
+                        <option value="5R/1114">5R/1114</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="destination">
+                        <option value="(AH)">AH</option>
+                        <option value="(KP)">KP</option>
+                        <option value="(KK)">KK</option>
+                        <option value="(HTY)">HTY</option>
+                    </select>
+                    &nbsp;&nbsp;<input type="text" id="car-amount" class="num"/>&nbsp;&nbsp;&nbsp;အိတ်
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2"></td>
+                <td><hr></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">တင်ရန်ကျန်အိတ်</td>
+                <td>
+                    <span id="leftamount-after-car"></span>&nbsp;&nbsp;&nbsp;အိတ်
+                </td>
+            </tr>
+        </table>
+    </form>
+    <button id="submit">Submit</button>
+    </div>
+
+
+    <div width="50%" id="captureArea">
+        <form>
+            <table>
+                <tr>
+                    <th colspan="2">ကိုသီဟ ကုန်ဖိုးငွေစာရင်း</th>
+                    <th id="rdate"></th>
+                </tr>
+    
+                <tr>
+                    <td style="width:10%">&nbsp;&nbsp;&nbsp;ဝယ်အိတ်</td>
+                    <td style="width:45%"><span id="rpurchase-amount"></span>&nbsp;&nbsp;အိတ်&nbsp;&nbsp;x&nbsp;
+                       <span id="rpurchase-money"></span>&nbsp;&nbsp;&nbsp;ကျပ်
+                    </td>
+                    <td><span id="rtotal-amount"></span>&nbsp;&nbsp;&nbsp;ကျပ်</td>
+                </tr>
+    
+                <tr>
+                    <td>ကော်မရှင်ခ</td>
+                    <td>
+                        <span id="rcommission-amount"></span>&nbsp;&nbsp;အိတ်&nbsp;&nbsp;x&nbsp;
+                        <span id="rcommission-money"></span>&nbsp;&nbsp;&nbsp;ကျပ်
+                    </td>
+                    <td><span id="rcommission-total"></span>&nbsp;&nbsp;&nbsp;ကျပ်</td>
+                </tr>
+    
+                <tr>
+                    <td colspan="2"></td>
+                    <td><hr></td>
+                </tr>
+    
+                <tr>
+                    <td colspan="2">စုစုပေါင်း ကုန်ဖိုးငွေ</td>
+                    <td><span id="rtotal"></span>&nbsp;&nbsp;&nbsp;ကျပ်</td>
+                </tr>
+    
+                <tr>
+                    <td colspan="2">ကိုသီဟသို့ပေးရန် ကုန်ဖိုးငွေ</td>
+                    <td><span id="rtotal-th"></span>&nbsp;&nbsp;&nbsp;ကျပ်</td>
+                </tr>
+    
+                <tr>
+                    <td colspan="3"><hr></td>
+                </tr>
+    
+                <tr>
+                    <th colspan="3" class="title">တင်ရန်ကျန်စာရင်း</th>
+                </tr>
+    
+                <tr>
+                    <td colspan="2"><span id="rleft-date"></span>&nbsp;&nbsp;&nbsp;လက်ကျန်အိတ်</td>
+                    <td>
+                        <span id="rleft-amount"></span>&nbsp;&nbsp;&nbsp;အိတ်
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td colspan="2"><span id="rpurchase-date"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ဝယ်အိတ်</td>
+                    <td>
+                        <span id="rpurchase-amt"></span>&nbsp;&nbsp;&nbsp;အိတ်
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td colspan="2">စုစုပေါင်းအိတ်</td>
+                    <td>
+                        <span id="rtotal-left"></span>&nbsp;&nbsp;&nbsp;အိတ်
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td colspan="2">
+                        ကားတင်&nbsp;&nbsp;&nbsp;
+                        <span id="rcar"></span>
+                    </td>
+                    <td>
+                        <span id="rdestination"></span>
+                        &nbsp;&nbsp;<span id="rcar-amount"></span>&nbsp;&nbsp;&nbsp;အိတ်
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td colspan="2"></td>
+                    <td><hr></td>
+                </tr>
+    
+                <tr>
+                    <td colspan="2">တင်ရန်ကျန်အိတ်</td>
+                    <td>
+                        <span id="rleftamount-after-car"></span>&nbsp;&nbsp;&nbsp;အိတ်
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <button id="capture">Capture and Download Screenshot</button>
+
+    <script src="myJs.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+</body>
+</html>
