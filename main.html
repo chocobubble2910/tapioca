@@ -11,19 +11,22 @@
             align-items: center;
         }
 
-        table{
+        form{
             width: 50%;
+        }
+        table{
             border: 2px solid black;
         }
 
         .num{
-            width: 50px;
+            width: 30px;
         }
 
         td{
             /* border: 1px solid red; */
             text-align: right;
-            padding: 5px 15px 5px 5px;
+            padding-right: 5px;
+            font-size: smaller;
         }
 
         .title{
@@ -51,6 +54,35 @@
             color: black;
             font-size: medium;
         }
+
+        .mid{
+            width: 60%;
+            padding: 0%;
+            font-size: x-small;
+        }
+
+        @import url('https://fonts.googleapis.com/css?family=Poppins:wght@400;500;600;700$display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body{
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .hrbar{
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+
+        th{
+            font-size: small;
+        }
     </style>
 </head>
 <body>
@@ -63,17 +95,17 @@
             </tr>
 
             <tr>
-                <td style="width:10%">&nbsp;&nbsp;&nbsp;ဝယ်အိတ်</td>
-                <td style="width:45%">
-                    <input type="text" id="purchase-amount" class="num"/>&nbsp;&nbsp;အိတ်&nbsp;
-                    <input type="text" id="purchase-money" class="num"/>&nbsp;&nbsp;&nbsp;ကျပ်
+                <td style="width:20%">&nbsp;&nbsp;&nbsp;ဝယ်အိတ်</td>
+                <td class="mid">
+                    <input type="text" id="purchase-amount" class="num"/>အိတ်
+                    <input type="text" id="purchase-money" class="num"/>ကျပ်
                 </td>
                 <td><span id="total-amount"></span>&nbsp;&nbsp;&nbsp;ကျပ်</td>
             </tr>
 
             <tr>
                 <td>ကော်မရှင်ခ</td>
-                <td>
+                <td class="mid">
                     <input type="text" id="commission-amount" class="num"/>&nbsp;&nbsp;အိတ်&nbsp;
                     <input type="text" id="commission-money" class="num"/>&nbsp;&nbsp;&nbsp;ကျပ်
                 </td>
@@ -81,6 +113,7 @@
             </tr>
 
             <tr>
+
                 <td colspan="2"></td>
                 <td><hr></td>
             </tr>
@@ -172,19 +205,19 @@
     
                 <tr>
                     <td style="width:10%">&nbsp;&nbsp;&nbsp;ဝယ်အိတ်</td>
-                    <td style="width:45%"><span id="rpurchase-amount"></span>&nbsp;&nbsp;အိတ်&nbsp;&nbsp;x&nbsp;
-                       <span id="rpurchase-money"></span>&nbsp;&nbsp;&nbsp;ကျပ်
+                    <td style="width:45%"><span id="rpurchase-amount"></span>&nbsp;အိတ်&nbsp;x&nbsp;
+                       <span id="rpurchase-money"></span>&nbsp;ကျပ်
                     </td>
-                    <td><span id="rtotal-amount"></span>&nbsp;&nbsp;&nbsp;ကျပ်</td>
+                    <td><span id="rtotal-amount"></span>&nbsp;ကျပ်</td>
                 </tr>
     
                 <tr>
                     <td>ကော်မရှင်ခ</td>
                     <td>
-                        <span id="rcommission-amount"></span>&nbsp;&nbsp;အိတ်&nbsp;&nbsp;x&nbsp;
-                        <span id="rcommission-money"></span>&nbsp;&nbsp;&nbsp;ကျပ်
+                        <span id="rcommission-amount"></span>&nbsp;အိတ်&nbsp;x&nbsp;
+                        <span id="rcommission-money"></span>&nbsp;ကျပ်
                     </td>
-                    <td><span id="rcommission-total"></span>&nbsp;&nbsp;&nbsp;ကျပ်</td>
+                    <td><span id="rcommission-total"></span>&nbsp;ကျပ်</td>
                 </tr>
     
                 <tr>
@@ -194,16 +227,16 @@
     
                 <tr>
                     <td colspan="2">စုစုပေါင်း ကုန်ဖိုးငွေ</td>
-                    <td><span id="rtotal"></span>&nbsp;&nbsp;&nbsp;ကျပ်</td>
+                    <td><span id="rtotal"></span>&nbsp;ကျပ်</td>
                 </tr>
     
                 <tr>
                     <td colspan="2">ကိုသီဟသို့ပေးရန် ကုန်ဖိုးငွေ</td>
-                    <td><span id="rtotal-th"></span>&nbsp;&nbsp;&nbsp;ကျပ်</td>
+                    <td><span id="rtotal-th"></span>&nbsp;ကျပ်</td>
                 </tr>
     
                 <tr>
-                    <td colspan="3"><hr></td>
+                    <td class="hrbar" colspan="3"><hr></td>
                 </tr>
     
                 <tr>
@@ -211,23 +244,23 @@
                 </tr>
     
                 <tr>
-                    <td colspan="2"><span id="rleft-date"></span>&nbsp;&nbsp;&nbsp;လက်ကျန်အိတ်</td>
+                    <td colspan="2"><span id="rleft-date"></span>&nbsp;လက်ကျန်အိတ်</td>
                     <td>
-                        <span id="rleft-amount"></span>&nbsp;&nbsp;&nbsp;အိတ်
+                        <span id="rleft-amount"></span>&nbsp;အိတ်
                     </td>
                 </tr>
     
                 <tr>
-                    <td colspan="2"><span id="rpurchase-date"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ဝယ်အိတ်</td>
+                    <td colspan="2"><span id="rpurchase-date"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ဝယ်အိတ်</td>
                     <td>
-                        <span id="rpurchase-amt"></span>&nbsp;&nbsp;&nbsp;အိတ်
+                        <span id="rpurchase-amt"></span>&nbsp;အိတ်
                     </td>
                 </tr>
     
                 <tr>
                     <td colspan="2">စုစုပေါင်းအိတ်</td>
                     <td>
-                        <span id="rtotal-left"></span>&nbsp;&nbsp;&nbsp;အိတ်
+                        <span id="rtotal-left"></span>&nbsp;အိတ်
                     </td>
                 </tr>
     
@@ -238,7 +271,7 @@
                     </td>
                     <td>
                         <span id="rdestination"></span>
-                        &nbsp;&nbsp;<span id="rcar-amount"></span>&nbsp;&nbsp;&nbsp;အိတ်
+                        &nbsp;<span id="rcar-amount"></span>&nbsp;အိတ်
                     </td>
                 </tr>
     
